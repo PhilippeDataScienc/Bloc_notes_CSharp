@@ -131,5 +131,29 @@ namespace Bloc_notes
         {
 
         }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(filePath))
+            {
+                using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "TextDocument | *.txt", ValidateNames = true})
+                {
+                    if (sfd.ShowDialog()==DialogResult.OK)
+                    { 
+                        using(StreamWriter sw=new StreamWriter(sfd.FileName))
+                        {
+                            sw.WriteLineAsync(richTextBox1.Text);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                using (StreamWriter sw = new StreamWriter(filePath))
+                {
+                    sw.WriteLineAsync(richTextBox1.Text);
+                }
+            }
+        }
     }
 }
