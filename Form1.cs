@@ -88,7 +88,7 @@ namespace Bloc_notes
 
         private void exit2ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
         private void undoToolStripMenuItem_Click(object sender, EventArgs e)
