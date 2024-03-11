@@ -174,5 +174,19 @@ namespace Bloc_notes
         {
             e.Graphics.DrawString(richTextBox1.Text, richTextBox1.Font, Brushes.Black, 12, 10);
         }
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+            if (richTextBox1.Text.Length > 0)
+            {
+                cutToolStripMenuItem.Enabled = true;
+                copyToolStripMenuItem.Enabled = true;   
+            }
+            else
+            {
+                cutToolStripMenuItem.Enabled = false;
+                copyToolStripMenuItem.Enabled = false;
+            }
+        }
     }
 }
