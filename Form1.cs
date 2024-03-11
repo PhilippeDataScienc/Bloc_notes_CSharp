@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ namespace Bloc_notes
 {
     public partial class Form1 : Form
     {
+        string filePath = "";   //used to store file location
         public Form1()
         {
             InitializeComponent();
@@ -34,11 +36,24 @@ namespace Bloc_notes
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            // Code for open a txt file
+            using (OpenFileDialog ofd = new OpenFileDialog() {Filter = "TextDocument | *.txt", ValidateNames = true, Multiselect = false})
+            {
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    using (StreamReader sr=new StreamReader(ofd.FileName))
+                    {
+                        filePath = ofd.FileName;
+                        Task<string> text=sr.ReadToEndAsync();
+                        richTextBox1.Text=text.Result;
+                    }
+                }
+            }
         }
 
         private void fichierToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            filePath = "";
             richTextBox1.Text = "";
         }
 
