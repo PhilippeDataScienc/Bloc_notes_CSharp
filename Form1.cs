@@ -59,12 +59,22 @@ namespace Bloc_notes
 
         private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "TextDocument | *.txt", ValidateNames = true })
+            {
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    using (StreamWriter sw = new StreamWriter(sfd.FileName))
+                    {
+                        sw.WriteLineAsync(richTextBox1.Text);
+                    }
+                }
+            }
         }
 
         private void printPreviewToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            printPreviewDialog1.Document = printDocument1;
+            printPreviewDialog1.ShowDialog();
         }
 
         private void printToolStripMenuItem_Click(object sender, EventArgs e)
@@ -154,6 +164,11 @@ namespace Bloc_notes
                     sw.WriteLineAsync(richTextBox1.Text);
                 }
             }
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            e.Graphics.DrawString(richTextBox1.Text, richTextBox1.Font, Brushes.Black, 12, 10);
         }
     }
 }
