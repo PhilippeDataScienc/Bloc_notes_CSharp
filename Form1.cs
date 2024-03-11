@@ -16,5 +16,20 @@ namespace Bloc_notes
         {
             InitializeComponent();
         }
+
+        private void menuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripTextBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void texteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
