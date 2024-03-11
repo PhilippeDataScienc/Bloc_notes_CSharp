@@ -93,37 +93,37 @@ namespace Bloc_notes
 
         private void undoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            richTextBox1.Undo();
         }
 
         private void redoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            richTextBox1.Redo();
         }
 
         private void cutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            richTextBox1.Cut();
         }
 
         private void copyToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            richTextBox1.Copy();
         }
 
         private void pasteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            richTextBox1.Paste();
         }
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            richTextBox1.SelectedText = "";
         }
 
         private void selectAllToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            richTextBox1.SelectAll();   
         }
 
         private void wordWrapToolStripMenuItem_Click(object sender, EventArgs e)
