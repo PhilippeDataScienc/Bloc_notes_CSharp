@@ -153,7 +153,8 @@ namespace Bloc_notes
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            AboutBox1 about = new AboutBox1();
+            about.ShowDialog();
         }
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
