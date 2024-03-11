@@ -79,7 +79,11 @@ namespace Bloc_notes
 
         private void printToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            printPreviewDialog1.Document = printDocument1;
+            if (printDialog1.ShowDialog()==DialogResult.OK)
+            {
+                printDocument1.Print();
+            }
         }
 
         private void exit2ToolStripMenuItem_Click(object sender, EventArgs e)
